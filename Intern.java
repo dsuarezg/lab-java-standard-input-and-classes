@@ -1,19 +1,19 @@
 public class Intern extends Employee {
 
-    static private final double MAX_SALARY = 2000.0;
+    static private final double MAX_SALARY = 20000.0;
 
-    public Intern(String name, String email, int age, Double salary) {
+    private Intern(String name, String email, int age, Double salary) {
         super(name, email, age, salary);
     }
 
-    @Override
-    public void setSalary(Double salary) {
-        if (salary > MAX_SALARY) {
-            System.out.println("Intern salary cannot exceed " + MAX_SALARY);
+    public static Intern createIntern(String name, String email, int age, Double salary) {
+        if (salary < MAX_SALARY) {
+            return new Intern(name, email, age, salary);
         } else {
-            super.setSalary(salary);
+            System.out.println(name + " salary cannot exceed the maximum allowed value");
+            return null;
         }
-    }
 
+    }
 
 }
