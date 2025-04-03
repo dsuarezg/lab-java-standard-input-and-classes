@@ -10,12 +10,20 @@ public class Main{
         var random = new Random();
 
         for (int i = 0; i < 10; i++) {
-            Intern intern = Intern.createIntern("Intern"+ i,"Intern"+ i + "@mail.com", random.nextInt(18,65), random.nextDouble(15000,30000));
-
-
-            if (intern != null) {
-                employees.write(intern.getName() + ", " + intern.getEmail() + ", " + intern.getAge() + ", " + intern.getSalary() + "\n");
+            if(random.nextDouble()>0.5){
+                Employee employee = new Employee("Employee"+ i,"Employee"+ i + "@mail.com", random.nextInt(18,65), random.nextDouble(15000,30000));
+                employees.write(employee.getName() + ", " + employee.getEmail() + ", " + employee.getAge() + ", " + employee.getSalary() + "\n");
             }
+            else{
+                Intern intern = Intern.createIntern("Intern"+ i,"Intern"+ i + "@mail.com", random.nextInt(18,65), random.nextDouble(15000,30000));
+
+
+                if (intern != null) {
+                    employees.write(intern.getName() + ", " + intern.getEmail() + ", " + intern.getAge() + ", " + intern.getSalary() + "\n");
+                }
+
+            }
+
         }
 
         employees.close();
